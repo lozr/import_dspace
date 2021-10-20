@@ -3,10 +3,5 @@
     "version": "0.1.0",
     "description":"Imports from a dspace 5 site",
     "minimum-stability": "dev",
-    "source": {
-        "url": "https://github.com/Mark-Hetherington/import_dspace",
-        "type": "git",
-        "reference": "tags/main"
-    },
     "type": "drupal-module"
 }
