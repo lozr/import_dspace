@@ -4,8 +4,6 @@ label: Import bitstreams from DSpace
 migration_group: DSpace Import
 migration_dependencies: {}
 
-migration_group: DSpace Import
-migration_dependencies: {}
 dependencies:
   enforced:
     module:
