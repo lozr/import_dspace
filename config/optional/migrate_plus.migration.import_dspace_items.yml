@@ -3,7 +3,7 @@ id: import_dspace_items
 label: Import items from DSspace
 migration_group: DSpace Import
 migration_dependencies:
-  require:
+  required:
     - import_dspace_bitstreams
 dependencies:
   enforced:
