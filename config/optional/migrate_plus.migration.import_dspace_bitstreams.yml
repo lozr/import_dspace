@@ -19,7 +19,7 @@ source:
   constants:
     source_base_path: 'http://www.insidecotton.com/rest'
 
-  urls: https://www.insidecotton.com/rest/bitstreams
+  urls: http://www.insidecotton.com/rest/bitstreams
 
   ids:
     id:
