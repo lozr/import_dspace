@@ -17,55 +17,31 @@ destination:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: json
+  data_parser_plugin: xml
   constants:
-    source_base_path: 'http://SOURCE-SITE.COM/'
+    source_base_path: 'http://www.insidecotton.com/rest'
 
-  urls: http://SOURCE-SITE.COM/jsonapi/node/article?fields[node--article]=nid,title,field_image&include=field_image
+  urls: https://www.insidecotton.com/rest/bitstreams
 
   ids:
     id:
-      type: string
+      type: integer
 
-  item_selector: included/
+  item_selector: bitstreams/bitstream
 
   fields:
     -
       name: id
       label: 'id'
-      selector: /data/id
-    -
-      name: fid
-      label: 'fid'
-      selector: /data/attributes/fid
-    -
-      name: uuid
-      label: 'uuid'
-      selector: /data/attributes/uuid
+      selector: /id
     -
       name: filename
       label: 'filename'
-      selector: /data/attributes/filename
-    -
-      name: status
-      label: 'status'
-      selector: /data/attributes/status
-    -
-      name: timestamp
-      label: 'timestamp'
-      selector: /data/attributes/timestamp
-    -
-      name: uid
-      label: 'uid'
-      selector: /data/attributes/uid
-    -
-      name: uri
-      label: 'Uri'
-      selector: /data/attributes/uri
+      selector: /name
     -
       name: url
       label: 'Url'
-      selector: /data/attributes/url
+      selector: /retrieveLink
 
 process:
 
