@@ -16,7 +16,7 @@ destination:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: json
+  data_parser_plugin: xml
 
   urls: http://www.insidecotton.com/rest/items
 
