@@ -2,7 +2,7 @@ type: module
 name: Import From DSpace
 description: 'Migrate data from a DSpace site that uses REST API.'
 package: Migration
-core: 8.x
+core_version_requirement: ^9
 dependencies:
   - migrate_plus
   - migrate_tools
