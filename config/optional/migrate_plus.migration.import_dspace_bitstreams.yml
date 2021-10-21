@@ -20,6 +20,8 @@ source:
     source_base_path: 'http://www.insidecotton.com/rest'
 
   urls: http://www.insidecotton.com/rest/bitstreams
+  headers:
+    Accept: application/xml
 
   ids:
     id:

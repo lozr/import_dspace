@@ -19,6 +19,8 @@ source:
   data_parser_plugin: xml
 
   urls: http://www.insidecotton.com/rest/items
+  headers:
+    Accept: application/xml
 
   ids:
     id:
