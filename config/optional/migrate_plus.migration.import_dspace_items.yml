@@ -65,12 +65,9 @@ process:
   changed: changed
   
   field_file:
-    plugin: sub_process
-    source: bistreams
-    process:
-      plugin: migration_lookup
-      migration: import_dspace_bitstreams
-      source: id
+    plugin: migration_lookup
+    migration: import_dspace_bitstreams
+    source: bitstreams
 
   uid:
     plugin: default_value
