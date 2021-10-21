@@ -32,23 +32,23 @@ source:
     -
       name: id
       label: 'id'
-      selector: /id
+      selector: id
     -
       name: name
       label: 'Name'
-      selector: /name
+      selector: name
     -
       name: changed
       label: 'Changed'
-      selector: /lastModified
+      selector: lastModified
     -
       name: archived
       label: 'Archived'
-      selector: /archived
+      selector: archived
     -
       name: handle
       label: 'Handle'
-      selector: /handle
+      selector: handle
 
 process:
   type:

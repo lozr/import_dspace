@@ -33,15 +33,15 @@ source:
     -
       name: id
       label: 'id'
-      selector: /id
+      selector: id
     -
       name: filename
       label: 'filename'
-      selector: /name
+      selector: name
     -
       name: url
       label: 'Url'
-      selector: /retrieveLink
+      selector: retrieveLink
 
 process:
 
