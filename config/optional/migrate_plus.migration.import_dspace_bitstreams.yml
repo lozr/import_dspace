@@ -39,8 +39,8 @@ source:
       label: 'filename'
       selector: name
     -
-      name: url
-      label: 'Url'
+      name: filepath
+      label: 'file path'
       selector: retrieveLink
 
 process:
@@ -57,11 +57,11 @@ process:
     plugin: concat
     source:
       - 'constants/source_base_path'
-      - url
+      - filepath
   url:
     plugin: download
     source:
       - '@source_full_path'
-      - url
+      - filepath
     guzzle_options:
       base_uri: 'constants/source_base_path'
