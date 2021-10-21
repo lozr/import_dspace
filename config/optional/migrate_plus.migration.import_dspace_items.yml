@@ -65,7 +65,7 @@ process:
   changed: changed
   
   field_file:
-    plugin: iterator
+    plugin: sub_process
     source: bistreams
     process:
       plugin: migration_lookup
