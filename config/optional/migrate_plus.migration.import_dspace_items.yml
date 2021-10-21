@@ -18,7 +18,7 @@ source:
   data_fetcher_plugin: http
   data_parser_plugin: simple_xml
 
-  urls: http://www.insidecotton.com/rest/items
+  urls: http://www.insidecotton.com/rest/items?expand=bitstreams
   headers:
     Accept: 'application/xml'
 
@@ -49,6 +49,10 @@ source:
       name: handle
       label: 'Handle'
       selector: handle
+    -
+      name: bitstreams
+      label: 'Bitstreams'
+      selector: 'bitstreams/id'
 
 process:
   type:
@@ -61,9 +65,12 @@ process:
   changed: changed
   
   field_file:
-    plugin: migration
-    migration: import_dspace_bitstreams
-    source: field_file/data/id
+    plugin: iterator
+    source: bistreams
+    process:
+      plugin: migration_lookup
+      migration: import_dspace_bitstreams
+      source: id
 
   uid:
     plugin: default_value
