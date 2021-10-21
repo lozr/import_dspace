@@ -15,13 +15,13 @@ destination:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: xml
+  data_parser_plugin: simple_xml
   constants:
     source_base_path: 'http://www.insidecotton.com/rest'
 
   urls: http://www.insidecotton.com/rest/bitstreams
   headers:
-    Accept: application/xml
+    Accept: 'application/xml'
 
   ids:
     id:

@@ -16,11 +16,11 @@ destination:
 source:
   plugin: url
   data_fetcher_plugin: http
-  data_parser_plugin: xml
+  data_parser_plugin: simple_xml
 
   urls: http://www.insidecotton.com/rest/items
   headers:
-    Accept: application/xml
+    Accept: 'application/xml'
 
   ids:
     id:
