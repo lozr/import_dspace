@@ -27,7 +27,7 @@ source:
     id:
       type: integer
 
-  item_selector: bitstreams/bitstream
+  item_selector: bitstream
 
   fields:
     -

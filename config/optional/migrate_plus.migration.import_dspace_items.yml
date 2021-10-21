@@ -26,7 +26,7 @@ source:
     id:
       type: integer
 
-  item_selector: items/item
+  item_selector: item
 
   fields:
     -
