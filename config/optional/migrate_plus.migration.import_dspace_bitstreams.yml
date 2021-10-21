@@ -55,14 +55,13 @@ process:
 
   source_full_path:
     plugin: concat
-    delimiter: /
     source:
       - 'constants/source_base_path'
       - url
-  uri:
+  url:
     plugin: download
     source:
       - '@source_full_path'
-      - uri
+      - url
     guzzle_options:
       base_uri: 'constants/source_base_path'
