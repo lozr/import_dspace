@@ -1,4 +1,5 @@
 # Migration configuration for imported articles.
+# Available expands: parentCollection, parentCollectionList, parentCommunityList, bitstreams, all
 id: import_dspace_items
 label: Import items from DSspace
 migration_group: DSpace Import
@@ -12,47 +13,48 @@ dependencies:
 
 destination:
   plugin: entity:node
+  bundle: article
 
 source:
   plugin: url
-  data_fetcher_plugin: http
-  data_parser_plugin: simple_xml
-
-  urls: http://www.insidecotton.com/rest/items?expand=bitstreams
-  headers:
-    Accept: 'application/xml'
-
-  ids:
-    id:
-      type: integer
-
-  item_selector: item
-
+  data_fetcher_plugin: file
+  data_parser_plugin: json
+  # local file relative to the Drupal root - make it online in future
+  urls: /modules/contrib/import_dspace/json_source/items.json
+  # the json nesting level and key
+  item_selector: 
+  # the json fields
   fields:
     -
-      name: id
+      name: src_id
       label: 'id'
       selector: id
     -
-      name: name
+      name: src_name
       label: 'Name'
       selector: name
     -
-      name: changed
+      name: src_changed
       label: 'Changed'
       selector: lastModified
     -
-      name: archived
+      name: src_archived
       label: 'Archived'
       selector: archived
     -
-      name: handle
+      name: src_handle
       label: 'Handle'
       selector: handle
     -
-      name: bitstreams
-      label: 'Bitstreams'
+      name: src_files
+      label: 'Files'
       selector: 'bitstreams/id'
+    -
+  # unique ids for this import by name
+  ids:
+    src_id:
+      type: integer
+  
 
 process:
   type:
@@ -67,7 +69,7 @@ process:
   field_file:
     plugin: migration_lookup
     migration: import_dspace_bitstreams
-    source: bitstreams
+    source: src_files
 
   uid:
     plugin: default_value

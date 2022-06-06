@@ -1,4 +1,5 @@
-# Migration configuration for imported images.
+# Migration configuration for imported files, mutliple types: documents, images, audio.
+# available expands: parent, policies, all
 id: import_dspace_bitstreams
 label: Import bitstreams from DSpace
 migration_group: DSpace Import
@@ -14,34 +15,39 @@ destination:
 
 source:
   plugin: url
-  data_fetcher_plugin: http
-  data_parser_plugin: simple_xml
+  data_fetcher_plugin: file
+  data_parser_plugin: json
   constants:
     source_base_path: 'http://www.insidecotton.com/rest'
+    # DRUPAL_FILE_DIRECTORY: 'public://media/' 
 
-  urls: http://www.insidecotton.com/rest/bitstreams
-  headers:
-    Accept: 'application/xml'
-
-  ids:
-    id:
-      type: integer
-
-  item_selector: bitstream
-
+  # local file relative to the Drupal root - make it online in future
+  urls: /modules/contrib/import_dspace/json_source/bitstreams.json
+   # the json nesting level and key
+  item_selector: 
+  # the json fields
   fields:
     -
-      name: id
-      label: 'id'
+      name: src_id
       selector: id
     -
-      name: filename
-      label: 'filename'
+      name: src_filename
       selector: name
     -
-      name: url
-      label: 'Url'
+      name: src_url
       selector: retrieveLink
+    -
+      name: src_description
+      selector: description
+    -
+      name: src_sequence_order
+      selector: sequenceId
+    -
+  # the unique ids for this import by name
+  ids:
+    src_id:
+      type: integer
+
 
 process:
 
