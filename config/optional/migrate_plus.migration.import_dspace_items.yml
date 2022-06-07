@@ -20,9 +20,10 @@ source:
   data_fetcher_plugin: file
   data_parser_plugin: json
   # local file relative to the Drupal root - make it online in future
-  urls: /modules/contrib/import_dspace/json_source/items.json
+  urls: 
+    - 'public://json_source/items.json'
   # the json nesting level and key
-  item_selector: 
+  item_selector: /
   # the json fields
   fields:
     -

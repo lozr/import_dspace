@@ -22,9 +22,10 @@ source:
     # DRUPAL_FILE_DIRECTORY: 'public://media/' 
 
   # local file relative to the Drupal root - make it online in future
-  urls: /modules/contrib/import_dspace/json_source/bitstreams.json
+  urls: 
+    - 'public://json_source/bitstreams.json'
    # the json nesting level and key
-  item_selector: 
+  item_selector: /
   # the json fields
   fields:
     -
