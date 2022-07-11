@@ -10,7 +10,7 @@ dependencies:
       - import_dspace
 
 destination:
-  plugin: entity:file
+  plugin: 'entity:file'
 
 source:
   plugin: url
@@ -18,6 +18,7 @@ source:
   data_parser_plugin: simple_xml
   constants:
     source_base_path: 'http://www.insidecotton.com/rest'
+    DRUPAL_FILE_DIR: 'public://migration-files/'
 
   urls: http://www.insidecotton.com/rest/bitstreams
   headers:
@@ -39,8 +40,7 @@ source:
       label: 'filename'
       selector: name
     -
-      name: url
-      label: 'Url'
+      name: src_url
       selector: retrieveLink
 
 process:
@@ -57,11 +57,18 @@ process:
     plugin: concat
     source:
       - 'constants/source_base_path'
-      - url
+      - src_url
+
+  pseudo_desintation_path:
+    plugin: concat
+    source:
+      - 'constants/DRUPAL_FILE_DIR'
+      - filename
+
   uri:
     plugin: download
     source:
       - '@source_full_path'
-      - url
+      - '@pseudo_destination_path'
     guzzle_options:
       base_uri: 'constants/source_base_path'
