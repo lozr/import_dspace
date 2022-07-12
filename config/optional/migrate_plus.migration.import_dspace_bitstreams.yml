@@ -10,7 +10,7 @@ dependencies:
       - import_dspace
 
 destination:
-  plugin: 'entity:file'
+  plugin: entity:file
 
 source:
   plugin: url
