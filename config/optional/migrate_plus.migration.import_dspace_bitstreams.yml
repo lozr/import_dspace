@@ -10,7 +10,7 @@ dependencies:
       - import_dspace
 
 destination:
-  plugin: entity:file
+  plugin: 'entity:file'
 
 source:
   plugin: url
@@ -70,5 +70,3 @@ process:
     source:
       - '@source_full_path'
       - '@pseudo_destination_path'
-    guzzle_options:
-      base_uri: 'constants/source_base_path'
