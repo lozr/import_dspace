@@ -70,5 +70,4 @@ process:
     source:
       - '@source_full_path'
       - '@pseudo_destination_path'
-    guzzle_options:
-      base_uri: 'constants/source_base_path'
+
